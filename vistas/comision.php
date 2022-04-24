@@ -12,9 +12,9 @@
 
     <div class="">
         <nav class="navegacion-integrante">
-            <a href="comision.php?rol=0" class="boton-integrante">Presidente</a>
-            <a href="comision.php?rol=1" class="boton-integrante">Tesorero</a>
-            <a href="comision.php?rol=2" class="boton-integrante">Secretario</a>
+            <a href="index.php?ruta=invitado&&comision&&rol=0" class="boton-integrante">Presidente</a>
+            <a href="index.php?ruta=invitado&&comision&&rol=1" class="boton-integrante">Tesorero</a>
+            <a href="index.php?ruta=invitado&&comision&&rol=2" class="boton-integrante">Secretario</a>
         </nav>
     </div>
 </div>
@@ -23,7 +23,28 @@
         //Lleno variables para mostrar a las personas
         if(isset($_GET['rol'])){
 
-            include('comisionTraerDatos.php');
+            //include('comisionTraerDatos.php');
+            switch($_GET['rol']){
+                case 0: 
+                    $rol = "Presidente";
+                    $nombre = "Luciana";
+                    $apellido = "Castro";
+                    $carrera = "Diseño";
+                    break;
+                case 1: 
+                    $rol = "Tesorero";
+                    $nombre = "Yoel";
+                    $apellido = "Ibarra";
+                    $carrera = "Ing. en Sistemas";
+                    break;
+                case 2: 
+                    $rol = "Secretario";
+                    $nombre = "Stefania";
+                    $apellido = "Baldoma";
+                    $carrera = "Medicina";
+                    break;
+                default: header("Location: index.php?ruta=invitado&&comision");
+            }
 
         }
     ?>

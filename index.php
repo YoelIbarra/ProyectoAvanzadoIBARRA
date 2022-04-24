@@ -15,19 +15,25 @@ $invitado = new ControladorInvitado();
 
 if(isset($_GET['ruta'])){
     if(
-        $_GET['ruta'] == 'invitado'
+        $_GET['ruta'] == 'invitado' 
     ){
         if(isset($_GET['comision'])){
            $invitado -> getComision();
         }else {
             $invitado -> getInvitado();
         }
-    }else{
-        // ERROR 404
+    }else if(
+        $_GET['ruta'] == 'usuario'
+    ){
+        include "vistas/0EnConstruccion.php";
     }
+    else{
+        include "vistas/error404.php";
+    }
+
 }else{
     if(isset($_SESSION['usuario'])){
-
+        
     }else{
         $login -> getLogin();
     }

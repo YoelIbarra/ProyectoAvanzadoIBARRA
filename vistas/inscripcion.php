@@ -99,11 +99,12 @@
             </fieldset>
             <fieldset class="">
             
-                <img src="captcha.php">
+                <img src="vistas/captcha.php">
                 <input type="text" name="captcha" placeholder="Ingrese el captcha" required> 
             </fieldset>
             <div class="form-boton">
-                <input class="boton" type="submit" value="Enviar">
+                <!--input class="boton" type="submit" value="Enviar"-->
+                <a class="boton" href="index.php?ruta=usuario">Enviar</a>
             </div>
         </form>
     </div>

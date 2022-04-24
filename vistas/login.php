@@ -40,7 +40,8 @@
                 </div>    
             </fieldset>
             <div class="login-boton">
-                <input class="boton" type="submit" value="Enviar">
+                <!--input class="boton" type="submit" value="Enviar"-->
+                <a class="boton" href="index.php?ruta=usuario">Enviar</a>
                 <a class="boton" href="index.php?ruta=invitado">Quiero ingresar como invitado</a>
             </div>
         </form>
