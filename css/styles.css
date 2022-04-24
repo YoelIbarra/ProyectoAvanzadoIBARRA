@@ -1,0 +1,264 @@
+html { 
+    font-size: 62.5%;
+
+    box-sizing: border-box;
+}
+*,*:before,*:after {
+    box-sizing: inherit;
+}
+body {
+    font-size: 16px; /*1rem = 10px*/
+    background-color: rgb(183, 183, 236) ;
+    
+}
+input{
+    border-color: black;
+}
+fieldset{
+    border-color: black;
+}
+
+:root{
+    /*colores*/
+    --botones: #EFEFEF;
+    --header-back: rgb(138, 180, 236);
+    --nav-back: rgb(66, 82, 104);
+    --nav-botton: rgb(112, 132, 161);
+    --footer-back: rgb(4, 17, 36);
+
+}
+
+/*Generales*/
+    .contenedor{
+        max-width: 120rem;
+        margin: 0 auto 0 auto;
+ 
+    }
+    .texto-contenedor{
+        text-align: center;
+    }
+
+    .alerta{
+        color: rgb(68, 23, 23);
+        text-align: center;
+        text-decoration: double;    
+    }
+
+    .mensaje{
+        width: 50%;
+        margin: 0 auto;
+        border: rgb(202, 43, 64) .5rem solid;
+    }
+
+
+    h1{
+        font-size: 3.8rem;
+    }
+    h2{
+        font-size: 2.8rem;
+    }
+    h3{
+        font-size: 2rem;
+    }
+    h4{
+        font-size: 1rem;
+    }
+    h1,h2,h3,h4,h5{
+        text-align: center;
+
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    .boton {
+        text-decoration: none;
+        border: black .2rem solid;
+        color: rgb(107, 5, 107);
+        border-radius: 1.5rem;
+        padding: .5rem;
+        background-color: var(--botones);
+    }
+
+    /*FORMS*/
+    .form{
+        display: flex;
+        flex-direction: column;
+        max-width: 50rem;
+        margin: 0 auto 0 auto;
+    }
+    .form-field{
+        display: flex;
+        flex-direction: column;
+        /*align-items: center;*/
+    }
+    .form-item{
+        display: flex;
+        flex-direction: row ;
+        align-items: center;
+        justify-content: space-between;
+        padding: .5rem 5rem;
+        
+    }
+    .form-boton{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin-top: .5rem;
+    
+    }
+
+
+
+    /*Clase tablas*/
+    .table{
+        width:100%;margin-bottom:1rem;background-color:transparent}
+    .table td,.table th{
+        padding:.75rem;vertical-align:top;border-top:1px solid #dee2e6;
+        /*mio*/
+        text-align: center;}
+    .table thead th{
+        vertical-align:bottom;border-bottom:2px solid #dee2e6}
+    .table tbody+tbody{
+        border-top:2px solid #dee2e6}
+    .table .table{
+        background-color:#fff}
+
+    .under-nav{
+        margin-top: 6rem;
+    }
+
+
+/*HEADER*/
+
+.header-img{
+
+    background-image: url('../img/logoCecacf.jpg');
+    background-size: contain;
+    background-position: center;
+    height: 20rem;
+
+}
+.header-back{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--header-back);
+    max-width: 100rem;
+    height: 20rem;
+    margin: 0 auto 0 auto;
+    justify-content: space-evenly;
+}
+
+
+/*LOGIN*/
+
+.login-contenido{
+    margin: 5rem auto;
+}
+.login-form{
+    display: flex;
+    flex-direction: column;
+    max-width: 50rem;
+    margin: 0 auto 0 auto;
+}
+.login-field{
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+}
+.login-item{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 5rem;
+    
+}
+.login-boton{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: .5rem;
+
+}
+.login-invitado{
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+/*NAVEGACION*/
+
+.navegacion-back{
+    background-color: var(--nav-back);
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+.navegacion-boton{
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--nav-botton);
+    border: black .2rem solid;
+    border-right: none;
+    padding: 1.4rem .5rem;
+    width: 10rem;
+    
+
+}
+.navegacion-boton:visited{
+    color: inherit;
+}
+.navegacion-boton:last-of-type{
+    margin-right: 5rem;
+    border-right: black .2rem solid;
+}
+
+/*FOOTER*/
+
+.footer-back{
+    margin-top: 10rem;
+    padding: 2rem 0;
+    background-color: var(--footer-back);
+    
+    color: white;
+    display: flex;
+    align-content: flex-end; 
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/*Comision*/
+
+.navegacion-integrante {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-top: 3rem;
+}
+.navegacion-integrante a{
+    text-decoration: none;
+    
+}
+.navegacion-integrante a:visited{
+    color: inherit;
+}
+.boton-integrante {
+    border: var(--footer-back) .2rem solid;
+    background-color: var(--header-back);
+    border-radius: 1rem;
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight:lighter;
+
+}
+.boton-integrante:focus {
+    background-color: rgb(22, 150, 71);
+}
