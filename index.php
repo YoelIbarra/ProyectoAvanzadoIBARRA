@@ -8,11 +8,32 @@ require_once "controladores/usuario.controlador.php";
 
 
 $login = new ControladorLogin();
+$invitado = new ControladorInvitado();
+
+
+// Lógica
+
+if(isset($_GET['ruta'])){
+    if(
+        $_GET['ruta'] == 'invitado'
+    ){
+        if(isset($_GET['comision'])){
+           $invitado -> getComision();
+        }else {
+            $invitado -> getInvitado();
+        }
+    }else{
+        // ERROR 404
+    }
+}else{
+    if(isset($_SESSION['usuario'])){
+
+    }else{
+        $login -> getLogin();
+    }
+}
 
 
 
-// Metodos
-
-$login -> getLogin();
 
 
