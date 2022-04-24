@@ -32,12 +32,10 @@ if(isset($_GET['ruta'])){
     }
 
 }else{
-    if(isset($_SESSION['usuario'])){
-        
-    }else{
+
         $login -> getLogin();
     }
-}
+
 
 
 
