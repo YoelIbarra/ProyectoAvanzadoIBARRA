@@ -3,13 +3,14 @@
 require_once "controladores/general.controlador.php";
 require_once "controladores/invitado.controlador.php";
 require_once "controladores/usuario.controlador.php";
+require_once "modelos/conexionDB.php";
 
 //Instancio los objetos
 
 
 $general = new ControladorGeneral();
 $invitado = new ControladorInvitado();
-
+$db = new Conexion();
 
 // Lógica
 
@@ -30,6 +31,8 @@ $invitado = new ControladorInvitado();
         }
     } else{
             $general -> getLogin();
+            $db::conectar();
+            echo '<pre>'; print_r($db);echo '</pre>';
         }
 
 
