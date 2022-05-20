@@ -13,7 +13,7 @@ $invitado = new ControladorInvitado();
 $db = new Conexion();
 
 // Lógica
-
+/*
     if(isset($_GET['ruta'])){
         switch($_GET['ruta']) {
             case "invitado":
@@ -31,11 +31,9 @@ $db = new Conexion();
         }
     } else{
             $general -> getLogin();
-            $db::conectar();
-            echo '<pre>'; print_r($db);echo '</pre>';
         }
-
-
+*/
+$general -> getLogin();
 
 
 
