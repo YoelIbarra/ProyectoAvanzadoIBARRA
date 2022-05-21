@@ -1,5 +1,6 @@
-<?php 
-    session_start();
+<?php
+    if(!$_SESSION)
+        session_start();
     if(isset($_SESSION['codigo_captcha'])){
         session_destroy();
         session_start();

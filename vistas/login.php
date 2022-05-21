@@ -1,10 +1,3 @@
-<?php 
-    session_start();
-    if(isset($_SESSION['usuario'])){
-        if($_SESSION['usuario'])
-        header('Location: inscriptos.php');
-    }
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

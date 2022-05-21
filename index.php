@@ -1,4 +1,5 @@
 <?php 
+session_Start();
 
 require_once "controladores/general.controlador.php";
 require_once "controladores/invitado.controlador.php";
@@ -13,28 +14,35 @@ $invitado = new ControladorInvitado();
 $db = new Conexion();
 
 // Lógica
-/*
-    if(isset($_GET['ruta'])){
-        switch($_GET['ruta']) {
-            case "invitado":
-                if(isset($_GET['comision'])){
-                    $invitado -> getComision();
-                }else {
-                    $invitado -> getInvitado();
-                }
-                break;
-            case "usuario":
-                $general -> getConstruccion();
-                break;
-            default:
-                $general -> get404();
+    
+    if(isset($_SESSION['usuario'])){
+        /*lógica usuario*/
+        if(isset($_GET['ruta'])){            
+            if( $_GET['ruta'] == "inscriptos" ||
+                $_GET['ruta'] == "EnConstruccion") {
+                
+                    include "/vistas/" . $_GET['ruta'] . ".php";
+                }else{
+                    $general -> get404();
+                }   
+        } else{
+                $general -> getLogin();
         }
-    } else{
-            $general -> getLogin();
-        }
-*/
-$general -> getLogin();
 
+    }else{
+        /*Logica Invitado*/
+        if(isset($_GET['ruta'])){            
+            if( $_GET['ruta'] == "comision" ||
+                $_GET['ruta'] == "inscripcion") {
+                
+                    include "vistas/" . $_GET['ruta'] . ".php";
+                }else{
+                    $general -> get404();
+                }   
+        } else{
+                $general -> getLogin();
+        }
+    }
 
 
 
