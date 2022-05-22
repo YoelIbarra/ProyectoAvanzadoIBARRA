@@ -33,7 +33,8 @@ $db = new Conexion();
         /*Logica Invitado*/
         if(isset($_GET['ruta'])){            
             if( $_GET['ruta'] == "comision" ||
-                $_GET['ruta'] == "inscripcion") {
+                $_GET['ruta'] == "inscripcion" ||
+                $_GET['ruta'] == "prueba") {
                 
                     include "vistas/" . $_GET['ruta'] . ".php";
                 }else{

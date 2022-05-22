@@ -12,9 +12,9 @@
 
     <div class="">
         <nav class="navegacion-integrante">
-            <a href="index.php?ruta=invitado&&comision&&rol=0" class="boton-integrante">Presidente</a>
-            <a href="index.php?ruta=invitado&&comision&&rol=1" class="boton-integrante">Tesorero</a>
-            <a href="index.php?ruta=invitado&&comision&&rol=2" class="boton-integrante">Secretario</a>
+            <a href="index.php?ruta=comision&&rol=0" class="boton-integrante">Presidente</a>
+            <a href="index.php?ruta=comision&&rol=1" class="boton-integrante">Tesorero</a>
+            <a href="index.php?ruta=comision&&rol=2" class="boton-integrante">Secretario</a>
         </nav>
     </div>
 </div>

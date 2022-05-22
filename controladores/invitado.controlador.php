@@ -2,12 +2,13 @@
 
 Class ControladorInvitado {
 
-    public function getInvitado(){
-        include "vistas/inscripcion.php";
-    }  
-    
-    public function getComision(){
-        include "vistas/comision.php";
-    }
+
+    static public function ctrTraerUsuario($item,$valor){
+        $tabla = "usuario";
+
+		$respuesta = ModeloInvitado::mdlSeleccionarusuario($tabla, $item, $valor);
+
+		return $respuesta;
+    } 
 
 }
