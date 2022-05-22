@@ -1,3 +1,7 @@
+<?php
+    if(isset($_SESSION['usuario']))
+        session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,28 +27,10 @@
         //Lleno variables para mostrar a las personas
         if(isset($_GET['rol'])){
 
-            //include('comisionTraerDatos.php');
-            switch($_GET['rol']){
-                case 0: 
-                    $rol = "Presidente";
-                    $nombre = "Luciana";
-                    $apellido = "Castro";
-                    $carrera = "Diseño";
-                    break;
-                case 1: 
-                    $rol = "Tesorero";
-                    $nombre = "Yoel";
-                    $apellido = "Ibarra";
-                    $carrera = "Ing. en Sistemas";
-                    break;
-                case 2: 
-                    $rol = "Secretario";
-                    $nombre = "Stefania";
-                    $apellido = "Baldoma";
-                    $carrera = "Medicina";
-                    break;
-                default: header("Location: index.php?ruta=invitado&&comision");
-            }
+            $ctr = new ControladorInvitado();
+            $rol = $ctr->ctrTraerRol($_GET['rol']);
+            $persona = $ctr->ctrTraerPersonaRol($_GET['rol']);
+
 
         }
     ?>
@@ -59,34 +45,14 @@
             ?>  
                           
      </h2>
-        <h2>
             <?php 
-                if(isset($_GET['rol'])){
-                    echo $rol ;
-                } 
-            ?>                
-        </h2>
-        <h3>
-            <?php 
-                if(isset($_GET['rol'])){
-                    echo "Nombre: " . $nombre;
-                }
-            ?> 
-        </h3>
-        <h3>
-            <?php 
-                if(isset($_GET['rol'])){
-                    echo "Apellido: " . $apellido;
-                }
-            ?> 
-        </h3>
-        <h3>
-            <?php 
-                if(isset($_GET['rol'])){
-                    echo "Carrera: " . $carrera;
+                if(isset($_GET['rol']) and $rol['descripcion']){
+                    echo "<h2>".$rol['descripcion']."</h2>" ;
+                    echo "<h3>Nombre: ".$persona['nombre']."</h3>";
+                    echo "<h3>Apellido: ".$persona['apellido']."</h3>";
+                    echo "<h3>Carrera: ".$persona['carrera']."</h3>";
                 }
             ?>
-        </h4>
     </main>
     
 </body>

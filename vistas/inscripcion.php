@@ -1,4 +1,6 @@
 <?php
+
+        
     if(!$_SESSION)
         session_start();
     if(isset($_SESSION['codigo_captcha'])){
@@ -26,32 +28,19 @@
     
     <section class="contenedor">
     <h2>Inscripcion</h2>
-    <?php
-        if(isset($_GET['ok'])){
-    ?>
-            <div class="mensaje">
-                <h2 class="alerta">Inscripción enviada correctamente</h2>
-            </div>    
+   
     <?php        
-        }else if(isset($_GET['cap'])){
+         if(isset($_GET['cap'])){
     
     ?>
             <div class="mensaje">
                 <h2 class="alerta">Error en Código Captcha</h2>
             </div> 
     <?php        
-        }else if(isset($_GET['dup'])){
-    
-    ?>
-            <div class="mensaje">
-                <h2 class="alerta">Ese documento ya se encuentra inscripto</h2>
-            </div>   
-    <?php       
-        }
-    ?>
+        }?>
     <div>
         
-        <form class="form" action="inscripcionSend.php" method="POST" enctype="multipart/form-data">
+        <form class="form" action="" method="POST" enctype="multipart/form-data">
             <fieldset class="form-fieldset">
                 <div class="form-item">
                     <label for="nombre">Nombre</label>
@@ -104,11 +93,26 @@
                 <input type="text" name="captcha" placeholder="Ingrese el captcha" required> 
             </fieldset>
             <div class="form-boton">
-                <!--input class="boton" type="submit" value="Enviar"-->
-                <a class="boton" href="index.php?ruta=usuario">Enviar</a>
+                <button type="submit" class="boton">Ingresar</button>
             </div>
         </form>
+        <?php 
+            $ctr = new ControladorInvitado();
+            $respuesta = $ctr -> ctrRegistrarInscripcion();
+            
+            if($respuesta =="ok"){
+                
+                echo '<script> 
+                  if (window.history.replaceState){
+                    window.history.replaceState(null,null, window.location.href);
+                  }
+                  </script>';
+                  
+                echo '<div class="Alerta"> Su inscripcion fue registrada correctamente</div>';
+              }
+        ?>
     </div>
+    
 
     </section>
 

@@ -4,14 +4,14 @@ session_Start();
 require_once "controladores/general.controlador.php";
 require_once "controladores/invitado.controlador.php";
 require_once "controladores/usuario.controlador.php";
-require_once "modelos/conexionDB.php";
+
+require_once "modelos/usuario.modelo.php";
+require_once "modelos/invitado.modelo.php";
 
 //Instancio los objetos
 
 
 $general = new ControladorGeneral();
-$invitado = new ControladorInvitado();
-$db = new Conexion();
 
 // Lógica
     
@@ -19,9 +19,12 @@ $db = new Conexion();
         /*lógica usuario*/
         if(isset($_GET['ruta'])){            
             if( $_GET['ruta'] == "inscriptos" ||
-                $_GET['ruta'] == "EnConstruccion") {
+                $_GET['ruta'] == "EnConstruccion" ||
+                $_GET['ruta'] == "comision" ||
+                $_GET['ruta'] == "inscripcion"
+                ) {
                 
-                    include "/vistas/" . $_GET['ruta'] . ".php";
+                    include "vistas/" . $_GET['ruta'] . ".php";
                 }else{
                     $general -> get404();
                 }   
@@ -34,7 +37,7 @@ $db = new Conexion();
         if(isset($_GET['ruta'])){            
             if( $_GET['ruta'] == "comision" ||
                 $_GET['ruta'] == "inscripcion" ||
-                $_GET['ruta'] == "prueba") {
+                $_GET['ruta'] == "EnConstruccion") {
                 
                     include "vistas/" . $_GET['ruta'] . ".php";
                 }else{

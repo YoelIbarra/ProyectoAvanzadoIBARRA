@@ -9,17 +9,7 @@
 
 
     <section class="contenedor login-contenido">
-        <?php if(isset($_GET['error'])){ ?>
-            <div class="mensaje">
-                <h2 class="alerta">Su usuario o contraseña son incorrectos</h2>
-            </div>
-        <?php }?>
-        <?php if(isset($_GET['log'])){ ?>
-            <div class="login-error">
-                <p class="login-error-mensaje">Necestia logearse antes de ingresar a esa ventana</p>
-            </div>
-        <?php }?>
-        <form class="login-form" action="loginControl.php" method="POST">
+        <form class="login-form" method="POST">
             
             <fieldset class="login-field">
                 <div class="login-item">
@@ -32,13 +22,17 @@
                     <input type="password" id="contrasenia" name="contrasenia" placeholder="Su contraseña" required>
                 </div>    
             </fieldset>
+            <?php 
+                $login = new ControladorUsuario();
+                $login -> ctrValidarLogin();
+            ?>
             <div class="login-boton">
                 <!--input class="boton" type="submit" value="Enviar"-->
-                <a class="boton" href="index.php?ruta=usuario">Enviar</a>
-                <a class="boton" href="index.php?ruta=invitado">Quiero ingresar como invitado</a>
+                <button type="submit" class="boton">Ingresar</button>
+                <a class="boton" href="index.php?ruta=inscripcion">Quiero ingresar como invitado</a>
             </div>
         </form>
     </section>
-    
+    <!--a class="boton" href="index.php?ruta=prueba">PruebaDB</a-->
 </body>
 </html>
