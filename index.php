@@ -21,11 +21,19 @@ $general = new ControladorGeneral();
             if( $_GET['ruta'] == "inscriptos" ||
                 $_GET['ruta'] == "EnConstruccion" ||
                 $_GET['ruta'] == "comision" ||
-                $_GET['ruta'] == "inscripcion"
+                $_GET['ruta'] == "inscripcion" ||
+                $_GET['ruta'] == "comentarios"
                 ) {
                 
                     include "vistas/" . $_GET['ruta'] . ".php";
+                }else if( $_GET['ruta'] == "logout"){
+                    if(!$_SESSION)
+                        session_start(); 
+                    session_destroy();
+                    header("Location: index.php");
+                    $general->getLogin();
                 }else{
+
                     $general -> get404();
                 }   
         } else{

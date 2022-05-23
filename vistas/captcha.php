@@ -1,5 +1,6 @@
 <?php
-    session_start();
+    
+        session_start();
     header("Content-type: image/jpeg");
     $codigo = $_SESSION['codigo_captcha'];
     

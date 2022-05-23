@@ -1,12 +1,6 @@
-<?php
-
-        
-    if(!$_SESSION)
-        session_start();
-    if(isset($_SESSION['codigo_captcha'])){
-        session_destroy();
-        session_start();
-    }
+<?php       
+    
+    
     $letras = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
         $mezcla1 = rand(0, 25);
         $mezcla2 = rand(0, 25);
@@ -29,15 +23,7 @@
     <section class="contenedor">
     <h2>Inscripcion</h2>
    
-    <?php        
-         if(isset($_GET['cap'])){
     
-    ?>
-            <div class="mensaje">
-                <h2 class="alerta">Error en Código Captcha</h2>
-            </div> 
-    <?php        
-        }?>
     <div>
         
         <form class="form" action="" method="POST" enctype="multipart/form-data">
@@ -78,19 +64,14 @@
                 </div>
                 <div class="form-item">
                     <label for="archivo">Documento que compruebe estudios</label>
-                    <input type="file" name="archivo" id="archivo" required> 
+                    <input type="file" name="archivo" id="archivo" > 
                 </div>                
             </fieldset>
             <fieldset>
                 <div class="form-item">
                     <label for="imagen">Foto del Inscripto</label>
-                    <input type="file" name="imagen" id="imagen" required> 
+                    <input type="file" name="imagen" id="imagen" > 
                 </div>
-            </fieldset>
-            <fieldset class="">
-            
-                <img src="vistas/captcha.php">
-                <input type="text" name="captcha" placeholder="Ingrese el captcha" required> 
             </fieldset>
             <div class="form-boton">
                 <button type="submit" class="boton">Ingresar</button>
@@ -102,13 +83,15 @@
             
             if($respuesta =="ok"){
                 
-                echo '<script> 
-                  if (window.history.replaceState){
-                    window.history.replaceState(null,null, window.location.href);
-                  }
-                  </script>';
-                  
-                echo '<div class="Alerta"> Su inscripcion fue registrada correctamente</div>';
+                echo '<script>
+
+                if ( window.history.replaceState ) {
+    
+                    window.history.replaceState( null, null, window.location.href );
+    
+                }
+                </script>';
+                echo '<div class="alerta alerta-error">Inscripcion realizada correctamente</div>';
               }
         ?>
     </div>
