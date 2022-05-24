@@ -1,6 +1,4 @@
-<?php       
-    
-    
+<?php /*
     $letras = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
         $mezcla1 = rand(0, 25);
         $mezcla2 = rand(0, 25);
@@ -9,7 +7,8 @@
         $numero = rand(0,9);
 
         $_SESSION['codigo_captcha'] = $letras[$mezcla1] . $letras[$mezcla2] . $numero . $letras[$mezcla3] . $letras[$mezcla4];
-?>
+    */
+        ?>
 
 <!DOCTYPE html>
 <html lang="es">

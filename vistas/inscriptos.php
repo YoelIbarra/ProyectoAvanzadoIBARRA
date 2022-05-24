@@ -6,8 +6,8 @@
 </head>
 <body>
     <?php include('header.php'); include('navegacionUsuario.php'); ?>
-
-    <table class="table">
+    <section class="contenedor">
+        <table class="table">
             <tr>
                 <td class="bold">Nombre</td>
                 <td class="bold">Apellido</td>
@@ -17,9 +17,9 @@
                 <td class="bold"></td>
             </tr>
             <?php
-                include("inscriptosTraerDatos.php"); 
-                if($result->num_rows > 0){
-                    while($datos = $result->fetch_assoc()){
+                $ctrUsuario = new ControladorUsuario(); 
+                if($resultado = $ctrUsuario->ctrTraerInscriptos()){
+                    foreach($resultado as $datos){
                         $id = $datos['id'];
                         $nombre = $datos['nombre'];
                         $apellido = $datos['apellido'];
@@ -32,13 +32,13 @@
                                 <td class="bold"><?php echo $apellido;?></td>
                                 <td class="bold"><?php echo $dni;?></td>
                                 <td class="bold"><?php echo $mail;?></td>
-                                <td class="bold"><a href="inscriptoVer.php?id=<?php echo $id;?>">Modificar</a></td>
+                                <td class="bold"><a href="index.php?ruta=inscriptoVer&&id=<?php echo $id;?>">Modificar</a></td>
                                 <td class="bold"><a href="inscriptoEliminar.php?id=<?php echo $id;?>" >Eliminar</a></td>
                             </tr>
             <?php
                     }
                 }
-                mysqli_close($conexion);
+
             ?>
     </section>
 

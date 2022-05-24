@@ -19,10 +19,11 @@ $general = new ControladorGeneral();
         /*lógica usuario*/
         if(isset($_GET['ruta'])){            
             if( $_GET['ruta'] == "inscriptos" ||
+                $_GET['ruta'] == "inscriptoVer" ||
                 $_GET['ruta'] == "EnConstruccion" ||
                 $_GET['ruta'] == "comision" ||
                 $_GET['ruta'] == "inscripcion" ||
-                $_GET['ruta'] == "comentarios"
+                $_GET['ruta'] == "comentarios" 
                 ) {
                 
                     include "vistas/" . $_GET['ruta'] . ".php";

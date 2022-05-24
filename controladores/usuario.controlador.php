@@ -49,4 +49,13 @@ Class ControladorUsuario {
 			}
         }
     }
+
+	static public function ctrTraerInscriptos(){
+		$resultado = ModeloUsuario::mdlBuscarInscriptos(NULL);
+		return $resultado;
+	}
+	static public function ctrTraerInscripto($id){
+		$resultado = ModeloUsuario::mdlBuscarInscriptos($id);
+		return $resultado;
+	}
 }
