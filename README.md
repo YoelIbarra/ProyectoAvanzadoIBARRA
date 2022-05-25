@@ -26,11 +26,11 @@ Luego hay en la navegación 2 botones mas, uno para hacer un logout y otro para 
 ## Que utilizamos en este proyecto:
 - Programación orientada a objetos en vez de hacer estructurado.
 - Patron MVC para organizar el código
+- Para la conexión de base de datos usamos PDO
   - Updates
   - Selects
   - Inserts 
-  - Delete (Podría haber usado pero preferí hacer un update en un estado activo, ya que no me gusta eliminar registros de la base de datos desde aplicación),
-- Para la conexión de base de datos usamos PDO
+  - Delete (Podría haber usado pero preferí hacer un update en un estado activo, ya que no me gusta eliminar registros de la base de datos desde aplicación)
 
 
 
