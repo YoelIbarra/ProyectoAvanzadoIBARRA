@@ -35,7 +35,7 @@
             
             if($respuesta =="ok"){
 
-                header("refresh:0.5");
+                header("refresh:0");
               }
         ?>
 
