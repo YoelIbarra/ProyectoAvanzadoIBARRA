@@ -45,4 +45,42 @@
             }
             $stmt = NULL;
         }
+
+        static public function mdlInactivarInscripcion($id){
+            $tabla = "inscripto";
+            $stmt = Conexion::conectar()->prepare(
+                "UPDATE $tabla
+                SET activo=0
+                WHERE id=:id;");
+            $stmt -> bindParam("id", $id, PDO::PARAM_INT);
+            
+            if($stmt -> execute()){
+                return "ok";
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+            $stmt -> closeCursor();
+            $stmt = NULL;
+        }
+
+        static public function mdlModificarInscripcion($id, $valores){
+            $tabla = "inscripto";
+            $stmt = Conexion::conectar()->prepare(
+                "UPDATE $tabla
+                SET telefono=:telefono , email=:email, carrera=:carrera , instituto=:instituto
+                WHERE id=:id;");
+            $stmt -> bindParam("id", $id, PDO::PARAM_INT);
+            $stmt -> bindParam("telefono", $valores['telefono'], PDO::PARAM_INT);
+            $stmt -> bindParam("email", $valores['email'], PDO::PARAM_STR);
+            $stmt -> bindParam("carrera", $valores['carrera'], PDO::PARAM_STR);
+            $stmt -> bindParam("instituto", $valores['instituto'], PDO::PARAM_STR);
+            
+            if($stmt -> execute()){
+                return "ok";
+            }else{
+                print_r(Conexion::conectar()->errorInfo());
+            }
+            $stmt -> closeCursor();
+            $stmt = NULL;
+        }
     }

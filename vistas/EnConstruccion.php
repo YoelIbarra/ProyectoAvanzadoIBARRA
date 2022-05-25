@@ -6,10 +6,9 @@
 </head>
 <body>
     <?php include("header.php"); ?>
-    <?php include("navegacionInvitado.php"); ?>
+    <?php include("navegacionUsuario.php"); ?>
     <main class="contenedor">
         <h1>Disculpe, momentaneamente esta página no esta disponible</h1>
-        <h2>Consultar en la entrega final</h2>
     </main>
 </body>
 </html>

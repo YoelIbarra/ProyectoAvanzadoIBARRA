@@ -33,7 +33,7 @@
                                 <td class="bold"><?php echo $dni;?></td>
                                 <td class="bold"><?php echo $mail;?></td>
                                 <td class="bold"><a href="index.php?ruta=inscriptoVer&&id=<?php echo $id;?>">Modificar</a></td>
-                                <td class="bold"><a href="inscriptoEliminar.php?id=<?php echo $id;?>" >Eliminar</a></td>
+                                <td class="bold"><a href="index.php?ruta=eliminarInscripto&&id=<?php echo $id;?>" >Eliminar</a></td>
                             </tr>
             <?php
                     }

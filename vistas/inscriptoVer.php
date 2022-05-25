@@ -17,14 +17,10 @@
         $nombre = $resultado['nombre'];
         $apellido = $resultado['apellido'];
         $dni = $resultado['documento'];
+        $telefono = $resultado['telefono'];
         $email = $resultado['email'];
-        $tel = $resultado['telefono'];
-        $comprobante = $resultado['comprobante'];
-        $foto = $resultado['foto'];
-        $activo = $resultado['activo'];
-        $fecha = $resultado['fecha'];
-        $carrera = $resultado['carrera'];
         $instituto = $resultado['instituto'];
+        $carrera = $resultado['carrera'];
 
 
     ?>
@@ -33,31 +29,40 @@
             echo $nombre." ".$apellido;
         ?></h1>
         <h2><?php echo $dni; ?></h2>
-        <!-- FOTO ACA -->
 
-        <form class="form" action="inscripcionUpdate.php?id=<?php echo $id; ?>" method="POST">
+        <?php 
+            $respuesta = $ctrUsuario -> ctrActualizarUsuario($id, $resultado);
+            
+            if($respuesta =="ok"){
+
+                header("refresh:0.5");
+              }
+        ?>
+
+        <form class="form" method="POST">
         <fieldset class="form-fieldset">
                 <div class="form-item">
-                    <label for="tel">Teléfono</label>
-                    <input type="text" name="tel" id="tel" pattern="[0-9]+" value="<?php if($tel!=0) echo $tel?>">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" name="telefono" id="telefono" pattern="[0-9]+" value="<?php echo $telefono?>">
                 </div>
                 <div class="form-item">
-                    <label for="mail">E-Mail</label>
-                    <input type="email" name="mail" id="mail" value="<?php echo $email?>" required>
+                    <label for="email">E-Mail</label>
+                    <input type="email" name="email" id="email" value="<?php echo $email?>" required>
                 </div>               
             </fieldset>
             <fieldset class="form-fieldset">
                 <div class="form-item">
-                    <label for="institucion">Universidad/Instituto</label>
-                    <input type="text" name="institucion" id="institucion" value="<?php echo $instituto; ?>" required>
+                    <label for="instituto">Universidad/Instituto</label>
+                    <input type="text" name="instituto" id="instituto" value="<?php echo $instituto?>" required>
                 </div>
                 <div class="form-item">
                     <label for=carrera">Carrera</label>
-                    <input type="text" name="carrera" id="carrera" value="<?php echo $carrera; ?>" required>
+                    <input type="text" name="carrera" id="carrera" value="<?php echo $carrera?>" required>
                 </div>
             </fieldset> 
             <div class="form-boton">
-                <input class="boton" type="submit" value="Enviar">
+                <button class="boton" type="submit">Actualizar</button>
+                <a href="index.php?ruta=inscriptos" class="boton">Volver</a>
             </div>
 
         </form>

@@ -21,6 +21,23 @@
     
     <section class="contenedor">
     <h2>Inscripcion</h2>
+    <?php 
+            $ctr = new ControladorInvitado();
+            $respuesta = $ctr -> ctrRegistrarInscripcion();
+            
+            if($respuesta =="ok"){
+                
+                echo '<script>
+
+                if ( window.history.replaceState ) {
+    
+                    window.history.replaceState( null, null, window.location.href );
+    
+                }
+                </script>';
+                echo '<div class="alerta alerta-error">Inscripcion realizada correctamente</div>';
+              }
+        ?>
    
     
     <div>
@@ -76,23 +93,7 @@
                 <button type="submit" class="boton">Ingresar</button>
             </div>
         </form>
-        <?php 
-            $ctr = new ControladorInvitado();
-            $respuesta = $ctr -> ctrRegistrarInscripcion();
-            
-            if($respuesta =="ok"){
-                
-                echo '<script>
 
-                if ( window.history.replaceState ) {
-    
-                    window.history.replaceState( null, null, window.location.href );
-    
-                }
-                </script>';
-                echo '<div class="alerta alerta-error">Inscripcion realizada correctamente</div>';
-              }
-        ?>
     </div>
     
 

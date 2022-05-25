@@ -33,7 +33,16 @@ $general = new ControladorGeneral();
                     session_destroy();
                     header("Location: index.php");
                     $general->getLogin();
-                }else{
+                }else  if($_GET['ruta'] == "eliminarInscripto" and isset($_GET['id'])){
+                    $resultado = ControladorUsuario::ctrEliminarInscripto($_GET['id']);
+                    if($resultado=="ok"){
+                        header("Location: index.php?ruta=inscriptos");
+                    }else{
+                        $general -> get404();
+                    }
+                    
+                }
+                else{
 
                     $general -> get404();
                 }   

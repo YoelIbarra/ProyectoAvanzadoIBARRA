@@ -58,4 +58,43 @@ Class ControladorUsuario {
 		$resultado = ModeloUsuario::mdlBuscarInscriptos($id);
 		return $resultado;
 	}
+	static public function ctrEliminarInscripto($id){
+		$resultado =ModeloUsuario::mdlInactivarInscripcion($id);
+		return $resultado;
+	}
+	static public function ctrActualizarUsuario($id,$resultado){
+
+		if(isset($_POST['email'])){
+			if($_POST['telefono'] != ""){
+				$telefono = $_POST['telefono'];
+			}else{
+				$telefono = $resultado['telefono'];
+			}
+			if($_POST['email'] != ""){
+				$email = $_POST['email'];
+			}else{
+				$email = $resultado['email'];
+			}
+			if($_POST['carrera'] != ""){
+				$carrera = $_POST['carrera'];
+			}else{
+				$carrera = $resultado['carrera'];
+			}
+			if($_POST['instituto'] != ""){
+				$instituto = $_POST['instituto'];
+			}else{
+				$instituto = $resultado['instituto'];
+			}
+			$valores = array (
+				"id" => $id,
+				"telefono" => $_POST['telefono'],
+				"email" => $_POST['email'],
+				"instituto" => $_POST['instituto'],
+				"carrera" => $_POST['carrera']
+			);
+			$respuesta = ModeloUsuario::mdlModificarInscripcion($id, $valores);
+			return $respuesta;
+		}
+		else{return null;}
+	}
 }
